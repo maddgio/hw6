@@ -7,131 +7,68 @@
 </head>
 <body>
 
-import { useState } from 'react';
-
-function FilterableCountryTable({ countries }) {
-  const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
-
-  return (
-    <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
-        onInStockOnlyChange={setInStockOnly} />
-      <CountryTable 
-        countries={countries} 
-        filterText={filterText}
-        inStockOnly={inStockOnly} />
-    </div>
-  );
-}
-
-function CountryCategoryRow({ category }) {
-  return (
-    <tr>
-      <th colSpan="2">
-        {category}
-      </th>
-    </tr>
-  );
-}
-
-function CountryRow({ country }) {
-  const name = country.stocked ? country.name :
-    <span style={{ color: 'red' }}>
-      {country.name}
-    </span>;
-
-  return (
-    <tr>
-      <td>{name}</td>
-      <td>{country.population}</td>
-    </tr>
-  );
-}
-
-function CountryTable({ countries, filterText, inStockOnly }) {
-  const rows = [];
-  let lastCategory = null;
-
-  countries.forEach((country) => {
-    if (
-      country.name.toLowerCase().indexOf(
-        filterText.toLowerCase()
-      ) === -1
-    ) {
-      return;
-    }
-    if (inStockOnly && !country.stocked) {
-      return;
-    }
-    if (country.category !== lastCategory) {
-      rows.push(
-        <CountryCategoryRow
-          category={country.category}
-          key={country.category} />
-      );
-    }
-    rows.push(
-      <CountryRow
-        country={country}
-        key={country.name} />
-    );
-    lastCategory = country.category;
-  });
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Country</th>
-          <th>Population</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-}
-
-function SearchBar({
-  filterText,
-  inStockOnly,
-  onFilterTextChange,
-  onInStockOnlyChange
-}) {
-  return (
-    <form>
-      <input 
-        type="text" 
-        value={filterText} 
-        placeholder="Search..." 
-        onChange={(e) => onFilterTextChange(e.target.value)} />
-      <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
-          onChange={(e) => onInStockOnlyChange(e.target.checked)} />
-        {' '}
+    <input type="text" id="filterInput" placeholder="Search..." />
+    <label>
+        <input type="checkbox" id="inStockOnly" />
         Only show Countries with positive yearly change
-      </label>
-    </form>
-  );
-}
+    </label>
 
-const COUNTRIES = [
-  {category: "Country", population: "1,428,627,663", stocked: true, name: "India"},
-  {category: "Country", population: "1,425,671,352", stocked: false, name: "China"},
-  {category: "Country", population: "339,996,563", stocked: true, name: "United States"},
-  {category: "Country", population: "277,534,122", stocked: true, name: "Indonesia"},
-  {category: "Country", population: "240,485,658", stocked: true, name: "Pakistan"},
-  {category: "Country", population: "223,804,632", stocked: true, name: "Nigeria"}
-];
+    <table id="countryTable">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Country rows will be dynamically added here -->
+        </tbody>
+    </table>
 
-export default function App() {
-  return <FilterableCountryTable countries={COUNTRIES} />;
-}
+    <script>
+        const countries = [
+            { category: "Country", population: "1,428,627,663", stocked: true, name: "India" },
+            { category: "Country", population: "1,425,671,352", stocked: false, name: "China" },
+            { category: "Country", population: "339,996,563", stocked: true, name: "United States" },
+            { category: "Country", population: "277,534,122", stocked: true, name: "Indonesia" },
+            { category: "Country", population: "240,485,658", stocked: true, name: "Pakistan" },
+            { category: "Country", population: "223,804,632", stocked: true, name: "Nigeria" }
+        ];
+
+        const filterInput = document.getElementById('filterInput');
+        const inStockOnlyCheckbox = document.getElementById('inStockOnly');
+        const countryTableBody = document.querySelector('#countryTable tbody');
+
+        function renderTable() {
+            countryTableBody.innerHTML = '';
+
+            countries.forEach(country => {
+                if (
+                    country.name.toLowerCase().includes(filterInput.value.toLowerCase()) &&
+                    (!inStockOnlyCheckbox.checked || (inStockOnlyCheckbox.checked && country.stocked))
+                ) {
+                    const row = document.createElement('tr');
+                    const nameColumn = document.createElement('td');
+                    const populationColumn = document.createElement('td');
+
+                    nameColumn.textContent = country.name;
+                    populationColumn.textContent = country.population;
+
+                    row.appendChild(nameColumn);
+                    row.appendChild(populationColumn);
+
+                    countryTableBody.appendChild(row);
+                }
+            });
+        }
+
+        // Initial render
+        renderTable();
+
+        // Event listeners for filtering
+        filterInput.addEventListener('input', renderTable);
+        inStockOnlyCheckbox.addEventListener('change', renderTable);
+    </script>
 
 </body>
 </html>
