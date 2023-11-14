@@ -42,7 +42,7 @@
       datasets: [{
         label: 'Population Amount',
         data: [1428627663, 1425671352, 339996563, 277534122, 240485658],
-        borderWidth: 1
+        borderWidth: 50
       }]
     },
     options: {
