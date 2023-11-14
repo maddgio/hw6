@@ -9,7 +9,7 @@
 
 import { useState } from 'react';
 
-function FilterableProductTable({ products }) {
+function FilterableCountryTable({ countries }) {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
 
@@ -20,15 +20,15 @@ function FilterableProductTable({ products }) {
         inStockOnly={inStockOnly} 
         onFilterTextChange={setFilterText} 
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <CountryTable 
+        countries={countries} 
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
   );
 }
 
-function ProductCategoryRow({ category }) {
+function CountryCategoryRow({ category }) {
   return (
     <tr>
       <th colSpan="2">
@@ -38,48 +38,48 @@ function ProductCategoryRow({ category }) {
   );
 }
 
-function ProductRow({ product }) {
-  const name = product.stocked ? product.name :
+function CountryRow({ country }) {
+  const name = country.stocked ? country.name :
     <span style={{ color: 'red' }}>
-      {product.name}
+      {country.name}
     </span>;
 
   return (
     <tr>
       <td>{name}</td>
-      <td>{product.price}</td>
+      <td>{country.population}</td>
     </tr>
   );
 }
 
-function ProductTable({ products, filterText, inStockOnly }) {
+function CountryTable({ countries, filterText, inStockOnly }) {
   const rows = [];
   let lastCategory = null;
 
-  products.forEach((product) => {
+  countries.forEach((country) => {
     if (
-      product.name.toLowerCase().indexOf(
+      country.name.toLowerCase().indexOf(
         filterText.toLowerCase()
       ) === -1
     ) {
       return;
     }
-    if (inStockOnly && !product.stocked) {
+    if (inStockOnly && !country.stocked) {
       return;
     }
-    if (product.category !== lastCategory) {
+    if (country.category !== lastCategory) {
       rows.push(
-        <ProductCategoryRow
-          category={product.category}
-          key={product.category} />
+        <CountryCategoryRow
+          category={country.category}
+          key={country.category} />
       );
     }
     rows.push(
-      <ProductRow
-        product={product}
-        key={product.name} />
+      <CountryRow
+        country={country}
+        key={country.name} />
     );
-    lastCategory = product.category;
+    lastCategory = country.category;
   });
 
   return (
@@ -105,7 +105,8 @@ function SearchBar({
     <form>
       <input 
         type="text" 
-        value={filterText} placeholder="Search..." 
+        value={filterText} 
+        placeholder="Search..." 
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
         <input 
@@ -119,16 +120,18 @@ function SearchBar({
   );
 }
 
-const PRODUCTS = [
-  {category: "Country", price: "1,428,627,663", stocked: true, name: "India"},
-  {category: "Country", price: "1,425,671,352", stocked: false, name: "China"},
-  {category: "Country", price: "339,996,563", stocked: true, name: "United States"},
-  {category: "Country", price: "277,534,122", stocked: true, name: "Indonesia"},
-  {category: "County", price: "240,485,658", stocked: true, name: "Pakistan"},
-  {category: "Country", price: "223,804,632", stocked: true, name: "Nigeria"}
+const COUNTRIES = [
+  {category: "Country", population: "1,428,627,663", stocked: true, name: "India"},
+  {category: "Country", population: "1,425,671,352", stocked: false, name: "China"},
+  {category: "Country", population: "339,996,563", stocked: true, name: "United States"},
+  {category: "Country", population: "277,534,122", stocked: true, name: "Indonesia"},
+  {category: "Country", population: "240,485,658", stocked: true, name: "Pakistan"},
+  {category: "Country", population: "223,804,632", stocked: true, name: "Nigeria"}
 ];
 
 export default function App() {
-  return <FilterableProductTable products={PRODUCTS} />;
+  return <FilterableCountryTable countries={COUNTRIES} />;
+}
+
 </body>
 </html>
