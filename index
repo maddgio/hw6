@@ -60,7 +60,7 @@
 
     <h2>Highest Country Populations</h2>
 
-// import { useState } from 'react';
+<!-- import { useState } from 'react' --!>
 
     <input type="text" id="filterInput" placeholder="Search..." />
     <label>
