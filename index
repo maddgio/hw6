@@ -24,7 +24,7 @@
 
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
-    <h2>Highest Country Populations</h2>
+    <h2>Top 5 Countries and their Population</h2>
 
 <div>
   <canvas id="myChart"></canvas>
@@ -58,7 +58,10 @@
 
 
 
-    <h2>Top 5 Countries and their Population</h2>
+    <h2>Highest Country Populations</h2>
+
+import { useState } from 'react';
+
     <input type="text" id="filterInput" placeholder="Search..." />
     <label>
         <input type="checkbox" id="inStockOnly" />
