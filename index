@@ -25,6 +25,8 @@
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
     <h2>Highest Country Populations</h2>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 const DATA_COUNT = 5;
 const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 1000000000};
 
