@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top 5 Countries and their Population</title>
+    <title>Countries Information</title>
     <style>
         body {
             background-color: #FFDAB9; /* Pastel Orange */
@@ -24,6 +24,7 @@
 
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
+    <h2>Top 5 Countries and their Population</h2>
     <input type="text" id="filterInput" placeholder="Search..." />
     <label>
         <input type="checkbox" id="inStockOnly" />
