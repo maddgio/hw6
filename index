@@ -25,38 +25,6 @@
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
     <h2>Highest Country Populations</h2>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-const DATA_COUNT = 5;
-const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 1000000000};
-
-const data = {
-  labels: ['India', 'China', 'United States', 'Indonesia', 'Pakistan'],
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: Utils.numbers(NUMBER_CFG),
-      backgroundColor: Object.values(Utils.CHART_COLORS),
-    }
-  ]
-};
-
-const config = {
-  type: 'pie',
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Pie Chart'
-      }
-    }
-  },
-};
 
 <div>
   <canvas id="myChart"></canvas>
@@ -72,7 +40,7 @@ const config = {
     data: {
       labels: ['India', 'China', 'United States', 'Indonesia', 'Pakistan'],
       datasets: [{
-        label: '# of Votes',
+        label: 'Population Amount',
         data: [1428627663, 1425671352, 339996563, 277534122, 240485658],
         borderWidth: 1
       }]
