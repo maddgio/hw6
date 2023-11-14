@@ -25,6 +25,20 @@
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
     <h2>Highest Country Populations</h2>
+const DATA_COUNT = 5;
+const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 1000000000};
+
+const data = {
+  labels: ['India', 'China', 'United States', 'Indonesia', 'Pakistan'],
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: Utils.numbers(NUMBER_CFG),
+      backgroundColor: Object.values(Utils.CHART_COLORS),
+    }
+  ]
+};
+
 const config = {
   type: 'pie',
   data: data,
@@ -72,7 +86,6 @@ const config = {
             { category: "Country", population: "339,996,563", stocked: true, name: "United States" },
             { category: "Country", population: "277,534,122", stocked: true, name: "Indonesia" },
             { category: "Country", population: "240,485,658", stocked: true, name: "Pakistan" },
-            { category: "Country", population: "223,804,632", stocked: true, name: "Nigeria" }
         ];
 
         const filterInput = document.getElementById('filterInput');
