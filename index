@@ -24,6 +24,28 @@
 
     <h1>COUNTRIES AND THEIR INFORMATION</h1>
 
+    <h2>Highest Country Populations</h2>
+const config = {
+  type: 'pie',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Pie Chart'
+      }
+    }
+  },
+};
+
+
+
+
+
     <h2>Top 5 Countries and their Population</h2>
     <input type="text" id="filterInput" placeholder="Search..." />
     <label>
