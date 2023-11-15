@@ -69,15 +69,13 @@ var visitedplaces_config = {
 <!-- end: VisitedPlaces.com code -->
 
 
-
-
     <h2>Top 5 Countries and their Population</h2>
 
 <div>
   <canvas id="myChart" width="200" height="200"></canvas>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js" style="width: 200px; height: 90px;"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
   const ctx = document.getElementById('myChart');
@@ -93,6 +91,8 @@ var visitedplaces_config = {
       }]
     },
     options: {
+      responsive: true, // Allow the chart to be responsive
+      maintainAspectRatio: false, // Prevent the chart from maintaining a constant aspect ratio
       scales: {
         y: {
           beginAtZero: true
@@ -101,6 +101,9 @@ var visitedplaces_config = {
     }
   });
 </script>
+
+
+
 
 
 
