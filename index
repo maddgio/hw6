@@ -172,7 +172,6 @@ var visitedplaces_config = {
 
 <div id="example-table"></div>
 
-//define data array
 var tabledata = [
     {id:1, country:"India", GPD:"$3,385,090,000,000", GDP growth:"7.00%"},
     {id:2, country:"China", GDP: "$17,963,200,000,000", GDP growth:"2.99%"},
@@ -181,10 +180,9 @@ var tabledata = [
     {id:5, country:"Pakistan", GDP: "$376,533,000,000", GDP growth:"6.19%"},
 ];
 
-//initialize table
 var table = new Tabulator("#example-table", {
-    data:tabledata, //assign data to table
-    autoColumns:true, //create columns from data field names
+    data:tabledata, 
+    autoColumns:true, 
 });
 
 
