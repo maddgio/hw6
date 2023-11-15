@@ -168,6 +168,27 @@ var visitedplaces_config = {
   });
 </script>
 
+<h2> Countries and their GDP</h2>
+
+<div id="example-table"></div>
+
+//define data array
+var tabledata = [
+    {id:1, country:"India", GPD:"$3,385,090,000,000", GDP growth:"7.00%"},
+    {id:2, country:"China", GDP: "$17,963,200,000,000", GDP growth:"2.99%"},
+    {id:3, country:"United States", GDP:"$25,462,700,000,000", GDP growth:"2.06%"},
+    {id:4, country:"Indonesia", GDP:"$1,319,100,000,000", GDP growth:"5.31%"},
+    {id:5, country:"Pakistan", GDP: "$376,533,000,000", GDP growth:"6.19%"},
+];
+
+//initialize table
+var table = new Tabulator("#example-table", {
+    data:tabledata, //assign data to table
+    autoColumns:true, //create columns from data field names
+});
+
+
+
 </body>
 </html>
 
