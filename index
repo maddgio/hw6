@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
     <title>Countries Information</title>
     <style>
         body {
@@ -172,18 +174,22 @@ var visitedplaces_config = {
 
 <div id="example-table"></div>
 
-var tabledata = [
-    {id:1, country:"India", GPD:"$3,385,090,000,000", GDP growth:"7.00%"},
-    {id:2, country:"China", GDP: "$17,963,200,000,000", GDP growth:"2.99%"},
-    {id:3, country:"United States", GDP:"$25,462,700,000,000", GDP growth:"2.06%"},
-    {id:4, country:"Indonesia", GDP:"$1,319,100,000,000", GDP growth:"5.31%"},
-    {id:5, country:"Pakistan", GDP: "$376,533,000,000", GDP growth:"6.19%"},
-];
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var tabledata = [
+        {id:1, country:"India", GPD:"$3,385,090,000,000", GDP_growth:"7.00%"},
+        {id:2, country:"China", GDP: "$17,963,200,000,000", GDP_growth:"2.99%"},
+        {id:3, country:"United States", GDP:"$25,462,700,000,000", GDP_growth:"2.06%"},
+        {id:4, country:"Indonesia", GDP:"$1,319,100,000,000", GDP_growth:"5.31%"},
+        {id:5, country:"Pakistan", GDP: "$376,533,000,000", GDP_growth:"6.19%"},
+    ];
 
-var table = new Tabulator("#example-table", {
-    data:tabledata, 
-    autoColumns:true, 
+    var table = new Tabulator("#example-table", {
+        data: tabledata,
+        autoColumns: true,
+    });
 });
+</script>
 
 
 
