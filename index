@@ -177,11 +177,11 @@ var visitedplaces_config = {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var tabledata = [
-        {id:1, country:"India", GPD:"$3,385,090,000,000", GDP_growth:"7.00%"},
-        {id:2, country:"China", GDP: "$17,963,200,000,000", GDP_growth:"2.99%"},
-        {id:3, country:"United States", GDP:"$25,462,700,000,000", GDP_growth:"2.06%"},
-        {id:4, country:"Indonesia", GDP:"$1,319,100,000,000", GDP_growth:"5.31%"},
-        {id:5, country:"Pakistan", GDP: "$376,533,000,000", GDP_growth:"6.19%"},
+        {country:"India", GPD:"$3,385,090,000,000", GDP_growth:"7.00%"},
+        {country:"China", GDP:"$17,963,200,000,000", GDP_growth:"2.99%"},
+        {country:"United States", GDP:"$25,462,700,000,000", GDP_growth:"2.06%"},
+        {country:"Indonesia", GDP:"$1,319,100,000,000", GDP_growth:"5.31%"},
+        {country:"Pakistan", GDP:"$376,533,000,000", GDP_growth:"6.19%"},
     ];
 
     var table = new Tabulator("#example-table", {
