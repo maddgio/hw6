@@ -189,6 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
         autoColumns: true,
     });
 });
+
+function calculateWeeklyPay(hoursWorked) {
+    const hourlyRate = 16;
+    const weeklyPay = hoursWorked * hourlyRate;
+    return weeklyPay;
+}
+
 </script>
 
 
