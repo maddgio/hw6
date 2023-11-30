@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <button onclick="calculateRoutesBeforeRefuel()">Calculate Routes Before Refuel</button>
 
-    <p id="result"></p>
+    <p id="results"></p>
 
     <script>
         function calculateRoutesBeforeRefuel() {
@@ -286,8 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const routesBeforeRefuel = Math.floor(milesPerTank / selectedRouteMiles);
 
-            const resultParagraph = document.getElementById('result');
-            resultParagraph.textContent = `Number of routes before needing to refuel: ${routesBeforeRefuel}`;
+            const resultsParagraph = document.getElementById('results');
+            resultsParagraph.textContent = `Number of routes before needing to refuel: ${routesBeforeRefuel}`;
         }
     </script>
 
