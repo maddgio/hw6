@@ -228,6 +228,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+    <h1>Bus Driver Weekly Pay Calculator</h1>
+
+    <label for="employeeId">Enter Employee ID:</label>
+    <input type="text" id="employeeId" placeholder="Enter employee ID">
+    <br>
+    <label for="hoursWorked">Enter Hours Worked:</label>
+    <input type="number" id="hoursWorked" placeholder="Enter hours">
+    <button onclick="calculatePay()">Calculate Weekly Pay</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateWeeklyPay(hoursWorked, employeeId)) {
+            const hourlyRate = 16;
+            return hoursWorked * hourlyRate;
+        }
+            return hoursWorked * hourlyRate;
+        }
+
+        function calculatePay() {
+            const employeeIdInput = document.getElementById('employeeId');
+            const hoursWorkedInput = document.getElementById('hoursWorked');
+            const resultParagraph = document.getElementById('result');
+
+            const employeeId = employeeIdInput.value.trim();
+            const hoursWorked = parseFloat(hoursWorkedInput.value);
+
+            // Check if both inputs are valid
+            if (employeeId === '' || isNaN(hoursWorked)) {
+                resultParagraph.textContent = "Please enter valid information.";
+            } else {
+                const weeklyPay = calculateWeeklyPay(hoursWorked, employeeId);
+                resultParagraph.textContent = `Weekly pay for Employee ${employeeId}: $${weeklyPay.toFixed(2)}`;
+            }
+        }
+    </script>
+
+
+
+
 </body>
 </html>
 
