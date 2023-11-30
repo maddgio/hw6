@@ -260,6 +260,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     </script>
 
+<h1>Bus Route Calculator</h1>
+
+    <label for="selectRoute">Select Route:</label>
+    <select id="selectRoute">
+        <option value="20">Route 1 (20 miles)</option>
+        <option value="17">Route 2 (17 miles)</option>
+        <option value="33">Route 3 (33 miles)</option>
+        <option value="27">Route 11 (27 miles)</option>
+        <option value="13">Route 12 (13 miles)</option>
+    </select>
+
+    <br>
+
+    <button onclick="calculateRoutesBeforeRefuel()">Calculate Routes Before Refuel</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateRoutesBeforeRefuel() {
+            const selectRoute = document.getElementById('selectRoute');
+            const selectedRouteMiles = parseInt(selectRoute.value);
+
+            const milesPerTank = 300; // Assuming the bus can cover 300 miles per tank
+
+            const routesBeforeRefuel = Math.floor(milesPerTank / selectedRouteMiles);
+
+            const resultParagraph = document.getElementById('result');
+            resultParagraph.textContent = `Number of routes before needing to refuel: ${routesBeforeRefuel}`;
+        }
+    </script>
 
 
 </body>
