@@ -200,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <p id="result"></p>
 
-    <script>
         function calculateWeeklyPay(hoursWorked) {
             const hourlyRate = 16;
             return hoursWorked * hourlyRate;
