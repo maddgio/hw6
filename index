@@ -190,11 +190,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function calculateWeeklyPay(hoursWorked) {
-    const hourlyRate = 16;
-    const weeklyPay = hoursWorked * hourlyRate;
-    return weeklyPay;
-}
+
+
+    <h1>Bus Driver Weekly Pay Calculator</h1>
+
+    <label for="hoursWorked">Enter Hours Worked:</label>
+    <input type="number" id="hoursWorked" placeholder="Enter hours">
+    <button onclick="calculatePay()">Calculate Weekly Pay</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateWeeklyPay(hoursWorked) {
+            const hourlyRate = 16;
+            return hoursWorked * hourlyRate;
+        }
+
+        function calculatePay() {
+            const hoursWorkedInput = document.getElementById('hoursWorked');
+            const resultParagraph = document.getElementById('result');
+
+            // Check if the input is a valid number
+            const hoursWorked = parseFloat(hoursWorkedInput.value);
+            if (isNaN(hoursWorked)) {
+                resultParagraph.textContent = "Please enter a valid number of hours.";
+            } else {
+                const weeklyPay = calculateWeeklyPay(hoursWorked);
+                resultParagraph.textContent = `Weekly pay: $${weeklyPay.toFixed(2)}`;
+            }
+        }
+
 
 </script>
 
