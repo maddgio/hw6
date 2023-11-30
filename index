@@ -190,6 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+<script>
+
 
 
     <h1>Bus Driver Weekly Pay Calculator</h1>
@@ -199,6 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <button onclick="calculatePay()">Calculate Weekly Pay</button>
 
     <p id="result"></p>
+
+<script>
 
         function calculateWeeklyPay(hoursWorked) {
             const hourlyRate = 16;
