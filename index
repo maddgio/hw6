@@ -270,6 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <label for="employeeId">Enter Employee ID:</label>
     <input type="text" id="employeeId" placeholder="Enter employee ID">
     <br>
+    <button onclick="fillHours()">Fill Hours</button>
+    <br>
     <label for="hoursWorked">Enter Hours Worked:</label>
     <input type="number" id="hoursWorked" placeholder="Enter hours">
     <button onclick="calculatePay()">Calculate Weekly Pay</button>
@@ -277,32 +279,37 @@ document.addEventListener('DOMContentLoaded', function() {
     <p id="result"></p>
 
     <script>
-        function calculateWeeklyPay(hoursWorked, employeeId) {
-            let hourlyRate;
+        // Store hours worked for each employee
+        const employeeHours = {
+            '1': 8,
+            '2': 11,
+            '3': 6,
+            '4': 17,
+            '7': 5,
+            // Add more employees if needed
+        };
 
-            // Assign hourly rate based on employee ID
-            switch (employeeId) {
-                case '1':
-                    hourlyRate = 16; // Adjust rate for employee with ID 1
-                    break;
-                case '2':
-                    hourlyRate = 16; // Adjust rate for employee with ID 2
-                    break;
-                case '3':
-                    hourlyRate = 16; // Adjust rate for employee with ID 3
-                    break;
-                case '4':
-                    hourlyRate = 16; // Adjust rate for employee with ID 4
-                    break;
-                case '7':
-                    hourlyRate = 16; // Adjust rate for employee with ID 7
-                    break;
-                // Add more cases for other employees
-                default:
-                    hourlyRate = 16; // Default rate
+        function fillHours() {
+            const employeeIdInput = document.getElementById('employeeId');
+            const hoursWorkedInput = document.getElementById('hoursWorked');
+
+            const employeeId = employeeIdInput.value.trim();
+
+            if (employeeHours[employeeId]) {
+                hoursWorkedInput.value = employeeHours[employeeId];
+            } else {
+                alert("No predefined hours for the entered Employee ID.");
             }
+        }
 
-            return hoursWorked * hourlyRate;
+        function calculateWeeklyPay(hoursWorked, employeeId) {
+            const hourlyRate = 16; // Default rate
+
+            // Check if predefined hours exist for the employee
+            const predefinedHours = employeeHours[employeeId];
+            const actualHours = predefinedHours || hoursWorked;
+
+            return actualHours * hourlyRate;
         }
 
         function calculatePay() {
