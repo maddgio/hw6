@@ -299,3 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resultsParagraph.textContent = `Number of routes before needing to refuel: ${routesBeforeRefuel}`;
         }
     </script>
+
+
+</body>
+</html>
