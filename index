@@ -298,25 +298,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div id="map"></div>
 
-    <function initMap() {
-  const myLatLng = { lat: -25.363, lng: 131.044 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
+    <script>
+        function initMap() {
+            const myLatLng = { lat: -25.363, lng: 131.044 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: myLatLng,
+            });
 
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
-  });
-}
+            new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Hello World!",
+            });
+        }
 
-window.initMap = initMap;
+        window.initMap = initMap;
+    </script>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-      defer
+        src="https://https://www.google.com/maps/search/Norman+public+bus/@35.2251828,-97.4904836,13z/data=!3m1!4b1?entry=ttu"
+        defer
     ></script>
 
 </body>
