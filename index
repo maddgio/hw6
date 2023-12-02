@@ -8,10 +8,12 @@
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
 
 
 <title>Countries Information</title>
@@ -298,6 +300,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const resultsParagraph = document.getElementById('results');
             resultsParagraph.textContent = `Number of routes before needing to refuel: ${routesBeforeRefuel}`;
         }
+    </script>
+
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        const map = L.map('map').setView([35.2226, 97.4395], 13); // Set your initial coordinates and zoom level
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Example bus route coordinates (replace with your actual route coordinates)
+        const busRoute = [
+            [35.2226, 97.4395],
+            [35.3395, 97.4867],
+            [35.4676, 97.5164],
+						[35.6528, 97.4781], 
+            [35.2226, 97.4395]
+        ];
+
+        L.polyline(busRoute, { color: 'blue' }).addTo(map);
     </script>
 
 
